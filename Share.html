@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share</title>
+    <link
+      href="https://fonts.font.im/css?family=Hanalei+Fill"
+      rel="stylesheet"
+    />
+    <style type="text/CSS">
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #eee;
+      }
+      .p {
+        font-family: "Hanalei Fill", cursive;
+      }
+      /* * {
+        border: 1px solid black;
+      } */
+      .flex {
+        display: flex;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .Cl {
+        flex-direction: column;
+      }
+      .DH {
+        padding: 10px 20px;
+        border-bottom: 1px solid pink;
+        font-size: 16px;
+        color: green;
+        text-align: center;
+      }
+      .yy {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5),
+          0px 0px 20px rgba(0, 0, 0, 0.3);
+      }
+      .BS {
+        background-color: white;
+      }
+      .MR {
+        margin-right: 7px;
+      }
+      .MT {
+        margin-top: 7px;
+      }
+      .Mg {
+        margin: 7px;
+      }
+      /* @media (max-width: 600px) {
+        .ceBian {
+          display: none;
+        }
+        .neiRong {
+          flex-direction: column;
+        }
+        .shuJu {
+          flex-direction: column;
+        }
+        .youQU {
+          margin-left: 8px;
+        }
+        .shujubj {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      } */
+      span {
+        font-size: larger;
+        color: rgb(247, 110, 51);
+      }
+      .C {
+        justify-content: center;
+        align-items: center;
+      }
+      /* rili */
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      #data {
+        width: 200px;
+        border: 1px solid #000000;
+        margin: 20px auto;
+      }
+      #data > p {
+        display: flex;
+      }
+      #data > h3 {
+        text-align: center;
+      }
+      #data > p > span {
+        padding: 0 10px;
+      }
+      #prev,
+      #next {
+        cursor: pointer;
+      }
+      #nian {
+        flex: 1;
+        text-align: center;
+      }
+      #title {
+        overflow: hidden;
+        list-style: none;
+        background: #ccc;
+      }
+      #title > li {
+        float: left;
+        width: 27px;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+      }
+      #date {
+        overflow: hidden;
+        list-style: none;
+      }
+      #date > li {
+        float: left;
+        width: 21px;
+        height: 34px;
+        margin: 1px 1px;
+        border: 2px solid rgba(0, 0, 0, 0);
+        line-height: 34px;
+        text-align: center;
+        cursor: pointer;
+      }
+      #date > .hover:hover {
+        border: 2px solid red;
+      }
+
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!--cebianlan-->
+    <div style="width: 200px; z-index: 2" class="yy BS">
+      <!--touxian-->
+      <div
+        style="
+          padding: 10px;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #999;
+        "
+        class="flex"
+      >
+        <img
+          src="https://s1.ax1x.com/2023/08/21/pPGyonS.jpg"
+          width="60px"
+          height="40px"
+          alt="LOGO"
+        />
+        <div style="margin-left: 10px">My Love</div>
+      </div>
+      <!--daohang-->
+      <div class="flex1">
+        <div class="DH"><a target="_blank" rel="noopener noreferrer"
+        href="https://www.bilibili.com/bangumi/play/ss38729?spm_id_from=333.337.0.0">老友记第一季<a></div>
+        <div class="DH"><a target="_blank" rel="noopener noreferrer"
+        href="https://www.bilibili.com/bangumi/play/ss34174?spm_id_from=333.337.0.0&from_spmid=666.25.recommend.0">伦敦生活第一季<a></div>
+        <div class="DH"><a target="_blank" rel="noopener noreferrer"
+        href="https://www.bilibili.com/bangumi/play/ss28165?spm_id_from=333.337.0.0&from_spmid=666.25.series.0">双姝第一季<a></div>
+        <div class="DH"><a target="_blank" rel="noopener noreferrer"
+        href="https://yingheapp.com/">硬核指南<a></div>
+        <div class="DH"><a target="_blank" rel="noopener noreferrer"
+        href="">没想好咯<a></div>
+        <div class="DH">daoHang</div>
+        <div class="DH">daoHang</div>
+        <div class="DH">daoHang</div>
+        <div class="DH">daoHang</div>
+        <div class="DH">daoHang</div>
+        <div class="DH">daoHang</div>
+        <div class="DH">daoHang</div>
+        <div class="DH">
+          <audio id="bgMusic" src="jiushirang.mp3" autoplay loop></audio>
+          <button id="playButton">播放音乐</button>
+        </div>
+        <!--rili-->
+        <div>
+          <div id="data">
+            <p>
+              <span id="prev">上月</span>
+              <span id="nian">2017</span>
+              <span id="next">下月</span>
+            </p>
+            <h3 id="yue">一月</h3>
+            <ul id="title">
+              <li>日</li>
+              <li>一</li>
+              <li>二</li>
+              <li>三</li>
+              <li>四</li>
+              <li>五</li>
+              <li>六</li>
+            </ul>
+            <ul id="date"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--zhuquyu-->
+    <div class="flex1 flex Cl">
+      <!--toubulan-->
+      <div style="height: 60px; z-index: 1" class="BS yy flex C">
+        <!--dneglukou-->
+        <div>
+          <span
+            ><i
+              >This is my <em>first time</em> to write a web page<br />
+              I hope you like it.</i
+            >
+          </span>
+        </div>
+        <div style="width: 20px; padding: 10px; margin: 10px"></div>
+      </div>
+      <!--neirong-->
+      <div style="overflow: auto" class="flex1 flex">
+        <!--zuoqu-->
+        <div style="flex: 3" class="flex Cl Mg">
+          <!--shuju-->
+          <div class="flex">
+            <!--shujukuai-->
+            <div style="height: 100px" class="flex1 yy MR BS">
+            <img src="lyj1.png"
+          width="100%"
+          height="100%"
+          alt="老年friends剧照"/>
+            </div>
+            <div style="height: 100px" class="flex1 yy MR BS">
+             <img src="lyj2.png"
+          width="100%"
+          height="100%"
+          alt="friends剧照"/>
+            </div>
+            <div style="height: 100px" class="flex1 yy MR BS">
+             <img src="lyj3.png"
+          width="100%"
+          height="100%"
+          alt="friends剧照"/>
+          </div>
+            <div style="height: 100px" class="flex1 yy BS">
+               <img src="lyj4.png"
+          width="100%"
+          height="100%"
+          alt="friends剧照"/>
+            </div>
+          </div>
+          <!--liebaioqu-->
+          <div class="flex Cl">
+            <!--liebiaokuai-->
+            <div style="height: 250px" class="yy BS MT">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;观看<a
+                  target="_blank"
+                  href="https://www.bilibili.com/video/BV1e94y1C7rb/?spm_id_from=333.337.search-card.all.click&vd_source=32f81f9359e6bb695d0c416aad3cc77a"
+                  >老友记 - 纽约黑帮纪实</a
+                >这个视频作为纪录片详细的介绍了《Friends》,六名成员分别是，
+                外表甜美擅长色诱男人的<em>"甜心瑞"</em>，蛇蝎心肠好勇斗狠的怪物，时刻准备着干架的<em
+                  >"怪兽卡"</em
+                >
+                从小混迹街头的女恶棍，比男成员更彪悍的金牌打手<em>“法兰姬”</em>，阴险狡诈心理变态的猥琐狂徒，
+                看到任何女性都想将之扑倒的<em>“肯丶亚当斯”</em>，和有着严重暴力倾向极端暴躁的悍匪
+                随时都有可能会失去理智的<em>“戴纳索”</em>，最后，他们的神秘团伙头目没有人知道他来自哪里，
+                平时从事什么工作，只知道他的江湖绰号<em>“史瑞丽普斯”</em>。<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们多次尝试对该团伙进行访问调查
+                都以失败告终，他们非常抗拒镜头， 目前
+                我们的两位采访记者仍下落不明。。。。。ps:《搞笑的》
+              </p>
+            </div>
+            <div style="height: 120px" class="yy BS MT"></div>
+            <div style="height: 220px" class="yy BS MT"></div>
+            <div style="height: 120px" class="yy BS MT"></div>
+            <div style="height: 120px" class="yy BS MT"></div>
+          </div>
+        </div>
+        <!--youqu-->
+        <div style="flex: 1" class="flex Cl MR MT">
+          <!--tishiqu-->
+          <div style="height: 150px" class="yy BS"></div>
+          <!--xiaoxiqu-->
+          <div style="height: 300px" class="yy BS MT"></div>
+          <div style="height: 300px" class="yy BS MT"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      // var bgMusic = document.getElementById("bgMusic");
+      // bgMusic.play();
+      // bgMusic.pause();
+      // bgMusic.currentTime = 0;
+      // bgMusic.pause();
+
+      var bgMusic = document.getElementById("bgMusic");
+      var playButton = document.getElementById("playButton");
+
+      playButton.addEventListener("click", function () {
+        if (bgMusic.paused) {
+          // 如果音乐已暂停，则播放音乐
+          bgMusic.play();
+        } else {
+          // 如果音乐正在播放，则暂停音乐
+          bgMusic.pause();
+        }
+      });
+      //rili
+      var dat = new Date(); //当前时间
+      var nianD = dat.getFullYear(); //当前年份
+      var yueD = dat.getMonth(); //当前月
+      var tianD = dat.getDate(); //当前天 这保存的年月日 是为了 当到达当前日期 有对比
+
+      add(); //进入页面第一次渲染
+
+      function add() {
+        document.getElementById("date").innerHTML = "";
+
+        var nian = dat.getFullYear(); //当前年份
+        var yue = dat.getMonth(); //当前月
+        var tian = dat.getDate(); //当前天
+        var arr = [
+          "一月",
+          "二月",
+          "三月",
+          "四月",
+          "五月",
+          "六月",
+          "七月",
+          "八月",
+          "九月",
+          "十月",
+          "十一月",
+          "十二月",
+        ];
+        document.getElementById("nian").innerText = nian;
+        document.getElementById("yue").innerText = arr[yue];
+
+        var setDat = new Date(nian, yue + 1, 1 - 1); //把时间设为下个月的1号 然后天数减去1 就可以得到 当前月的最后一天;
+        var setTian = setDat.getDate(); //获取 当前月最后一天
+        var setZhou = new Date(nian, yue, 1).getDay(); //获取当前月第一天 是 周几
+
+        for (var i = 0; i < setZhou; i++) {
+          //渲染空白 与 星期 对应上
+          var li = document.createElement("li");
+          document.getElementById("date").appendChild(li);
+        }
+
+        for (var i = 1; i <= setTian; i++) {
+          //利用获取到的当月最后一天 把 前边的 天数 都循环 出来
+          var li = document.createElement("li");
+          li.innerText = i;
+          if (nian == nianD && yue == yueD && i == tianD) {
+            li.className = "active";
+          } else {
+            li.className = "hover";
+          }
+
+          document.getElementById("date").appendChild(li);
+        }
+      }
+
+      document.getElementById("next").onclick = function () {
+        dat.setMonth(dat.getMonth() + 1); //当点击下一个月时 对当前月进行加1;
+        add(); //重新执行渲染 获取去 改变后的 年月日 进行渲染;
+      };
+      document.getElementById("prev").onclick = function () {
+        dat.setMonth(dat.getMonth() - 1); //与下一月 同理
+        add();
+      };
+    </script>
+  </body>
+</html>
